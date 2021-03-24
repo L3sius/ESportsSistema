@@ -6,15 +6,22 @@
 <h:head/>
 <h:body>
     <h2>Hello World, this is Justas!</h2>
-    <h2>Players:</h2>
+    <h2>Teams:</h2>
     <ol>
-        <ui:repeat value="#{players.allPlayers}" var="player">
-            <li>#{player.name}</li>
+        <!--        Old Implementation-->
+        <!--        <ui:repeat value="#{players.allPlayers}" var="player">-->
+        <!--        <li>#{player.name}</li>-->
+        <!--        </ui:repeat>-->
+        <ui:repeat value="#{teams.allTeams}" var="team">
+            <li><h:link value="#{team.name}" outcome="playersPage?teamId=#{team.id}"/></li>
         </ui:repeat>
     </ol>
     <h:form>
-        <h:inputText value="#{players.playerToCreate.name}" required="true" />
-        <h:commandButton value="Add new player" action="#{players.createPlayer}" />
+        <!--        Old Implementation-->
+        <!--        <h:inputText value="#{players.playerToCreate.name}" required="true"/>-->
+        <!--        <h:commandButton value="Add new player" action="#{players.createPlayer}"/>-->
+        <h:inputText value="#{teams.teamToCreate.name}" required="true"/>
+        <h:commandButton value="Add new team" action="#{teams.createTeam}"/>
     </h:form>
 
 </h:body>
