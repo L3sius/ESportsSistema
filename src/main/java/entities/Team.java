@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
+// Pridedam query užklausą, kad galima būtų perpanaudoti ir nekopijuoti.
 @NamedQueries({
         @NamedQuery(name = "Team.findAll", query = "select t from Team as t")
 })
@@ -26,6 +27,7 @@ public class Team {
 
     private String name;
 
+    //Undirectional
     @OneToMany(mappedBy = "team", fetch = FetchType.EAGER)
     private List<Player> players = new ArrayList<>();
 

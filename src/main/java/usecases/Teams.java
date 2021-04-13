@@ -15,6 +15,9 @@ import java.util.List;
 @Model
 public class Teams {
 
+    //@Inject looks at the component’s TeamsDAO scope, takes corresponding context and if finds instance of component TeamsDAO, uses it.
+    // Otherwise creates a new instance of TeamsDAO, puts it to this context, and returns to component "Teams"
+    // Component is a piece of software, which is reusable.
     @Inject
     private TeamsDAO teamsDAO;
 

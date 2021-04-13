@@ -8,7 +8,9 @@ import java.util.Objects;
 import lombok.Getter;
 import lombok.Setter;
 
+// Ši anotacija reiškia, kad klasė turi būti primappinta prie DB
 @Entity
+// Pridedam query užklausą, kad galima būtų perpanaudoti ir nekopijuoti.
 @NamedQueries({
         @NamedQuery(name = "Player.findAll", query = "select a from Player as a")
 })
@@ -25,6 +27,7 @@ public class Player implements Serializable {
     @Column(name = "NAME")
     private String name;
 
+    //Sujungiam su Team
     @ManyToOne
     @JoinColumn(name="TEAM_ID")
     private Team team;
