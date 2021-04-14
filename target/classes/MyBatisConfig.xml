@@ -5,7 +5,6 @@
 <configuration>
     <typeAliases>
         <typeAlias type="mybatis.model.Team" alias="Team"/>
-        <typeAlias type="mybatis.model.Player" alias="Player"/>
     </typeAliases>
     <environments default="development">
         <environment id="development">
@@ -16,7 +15,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="mybatis.xml/TeamMapper.xml"/>
-        <mapper resource="mybatis.xml/PlayerMapper.xml"/>
+        <mapper resource="xml/TeamMapper.xml"/>
     </mappers>
 </configuration>

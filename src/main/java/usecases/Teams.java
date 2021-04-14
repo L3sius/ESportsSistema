@@ -21,6 +21,7 @@ public class Teams {
     @Inject
     private TeamsDAO teamsDAO;
 
+    //Subindintas JSF input forma su backend bean
     @Getter @Setter
     private Team teamToCreate = new Team();
 

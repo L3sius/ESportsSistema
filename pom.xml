@@ -50,6 +50,7 @@
       <artifactId>mybatis</artifactId>
       <version>3.5.3</version>
     </dependency>
+<!--    Reikalingas, kad galima būtų injectinti komponentus-->
     <dependency>
       <groupId>org.mybatis</groupId>
       <artifactId>mybatis-cdi</artifactId>

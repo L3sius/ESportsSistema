@@ -32,7 +32,7 @@ public class MyBatisResources {
             return sqlSessionFactory;
 //            return new SqlSessionFactoryBuilder().build(Resources.getResourceAsStream("MyBatisConfig.xml"));
         } catch (IOException e) {
-            throw new RuntimeException("MyBatisResources.produceSqlSessionFactory(): ", e);
+            throw new RuntimeException("MyBatisResources.produceSqlSessionFactory():", e);
         }
     }
 }

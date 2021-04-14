@@ -6,9 +6,9 @@
     <!-- H2 Database -->
     <Resource id="ESportsDataSource" type="DataSource">
         JdbcDriver = org.h2.Driver
-        JdbcUrl = jdbc:h2:~/h2database/PlayersDB;AUTO_SERVER=TRUE;
-        UserName = as
-        Password = as
+        JdbcUrl = jdbc:h2:~/h2database/PlayersDB;AUTO_SERVER=TRUE
+        userName = as
+        password = as
         InitialSize = 1
         MaxActive = 10
         MaxWaitTime = 10 seconds
