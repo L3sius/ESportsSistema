@@ -16,5 +16,6 @@
     </environments>
     <mappers>
         <mapper resource="xml/TeamMapper.xml"/>
+        <mapper resource="xml/PlayerMapper.xml"/>
     </mappers>
 </configuration>

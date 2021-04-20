@@ -13,23 +13,38 @@ import lombok.Setter;
 @NamedQueries({
         @NamedQuery(name = "Team.findAll", query = "select t from Team as t")
 })
-@Table(name = "TEAM")
+@Table(name = "TEAM", schema = "PUBLIC")
 @Getter @Setter
 public class Team {
 
-    public Team(){
-
-    }
+    private Integer id;
+    private String name;
+    public Team(){}
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @Column(name = "ID", nullable = false)
+    public Integer getId() {
+        return id;
+    }
 
-    private String name;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    @Basic
+    @Column(name = "NAME", nullable = true, length = 255)
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     //Undirectional
-    @OneToMany(mappedBy = "team", fetch = FetchType.EAGER)
-    private List<Player> players = new ArrayList<>();
+    //@OneToMany(targetEntity=Player.class, mappedBy="TEAM_ID", fetch=FetchType.EAGER)
+    //private List<Player> players = new ArrayList<>();
 
     @Override
     public boolean equals(Object o) {
