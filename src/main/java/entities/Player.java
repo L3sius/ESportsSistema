@@ -21,6 +21,7 @@ public class Player implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID", nullable = false)
     private Integer id;
 
     @Size(max = 50)
@@ -30,7 +31,7 @@ public class Player implements Serializable {
     //Sujungiam su Team
     @ManyToOne
     @JoinColumn(name="TEAM_ID")
-    private Team team;
+    private TeamEntity team;
 
     public Player() {
     }

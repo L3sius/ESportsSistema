@@ -1,6 +1,6 @@
 package usecases;
 
-import entities.Team;
+import entities.TeamEntity;
 import lombok.Getter;
 import lombok.Setter;
 import persistence.TeamsDAO;
@@ -23,10 +23,10 @@ public class Teams {
 
     //Subindintas JSF input forma su backend bean
     @Getter @Setter
-    private Team teamToCreate = new Team();
+    private TeamEntity teamToCreate = new TeamEntity();
 
     @Getter
-    private List<Team> allTeams;
+    private List<TeamEntity> allTeams;
 
     @PostConstruct
     public void init(){
@@ -36,7 +36,6 @@ public class Teams {
     @Transactional
     public String createTeam(){
         this.teamsDAO.persist(teamToCreate);
-        System.out.println(teamToCreate);
         return "index?faces-redirect=true";
     }
 

@@ -3,6 +3,7 @@ package persistence;
 import entities.Player;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
@@ -15,7 +16,8 @@ import java.util.List;
     //Application wide data/constants, such as dropdown lists which are the same for everyone
 @ApplicationScoped
 public class PlayersDAO {
-    @PersistenceContext
+
+    @Inject
     private EntityManager em;
 
     public void setEm(EntityManager em) {

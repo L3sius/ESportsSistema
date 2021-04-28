@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.Map;
 
 import entities.Player;
-import entities.Team;
+import entities.TeamEntity;
 import lombok.Getter;
 import lombok.Setter;
 import persistence.PlayersDAO;
@@ -26,7 +26,7 @@ public class PlayersForTeam implements Serializable {
     private PlayersDAO playersDAO;
 
     @Getter @Setter
-    private Team team;
+    private TeamEntity team;
 
     @Getter @Setter
     private Player playerToCreate = new Player();

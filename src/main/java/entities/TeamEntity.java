@@ -1,24 +1,37 @@
 package entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
-@Table(name = "TEAM", schema = "PUBLIC", catalog = "PLAYERSDB")
+@NamedQueries({
+        @NamedQuery(name = "TeamEntity.findAll", query = "select t from TeamEntity as t")
+})
+@Table(name = "TEAM", schema = "PUBLIC")
+@Getter @Setter
 public class TeamEntity {
-    private Long id;
+    private Integer id;
     private String name;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID", nullable = false)
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
+
+    @OneToMany(targetEntity=Player.class, mappedBy="team", fetch=FetchType.EAGER)
+    private Player players;
 
     @Basic
     @Column(name = "NAME", nullable = true, length = 255)

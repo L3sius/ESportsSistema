@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
         <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-            <persistence-unit name="PlayersPU" transaction-type="JTA">
-                <class>entities.TeamEntity</class>
+<!--    <persistence-unit name="PlayersPU" transaction-type="JTA">-->
+    <persistence-unit name="ESportsDataSource" transaction-type="JTA">
 <!--                <class>entities.Team</class>-->
 <!--                <class>entities.Player</class>-->
-                <!--        <jta-data-source>PlayersDataSource</jta-data-source>-->
+                <jta-data-source>ESportsDataSource</jta-data-source>
+                <class>entities.TeamEntity</class>
+                <class>entities.Player</class>
                 <properties>
                     <!--<property name="hibernate.hbm2ddl.auto" value="create"/>-->
                     <property name="hibernate.show_sql" value="true"/>
