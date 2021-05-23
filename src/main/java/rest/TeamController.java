@@ -1,6 +1,6 @@
 package rest;
 
-import entities.TeamEntity;
+import entities.Team;
 import lombok.*;
 import persistence.TeamsDAO;
 import rest.contracts.TeamDto;
@@ -28,7 +28,7 @@ public class TeamController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getById(@PathParam("id") final Integer id) {
-        TeamEntity team = teamsDAO.findOne(id);
+        Team team = teamsDAO.findOne(id);
         if (team == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
@@ -47,7 +47,7 @@ public class TeamController {
             @PathParam("id") final Integer playerId,
             TeamDto teamData) {
         try {
-            TeamEntity existingTeam = teamsDAO.findOne(playerId);
+            Team existingTeam = teamsDAO.findOne(playerId);
             if (existingTeam == null) {
                 return Response.status(Response.Status.NOT_FOUND).build();
             }

@@ -1,37 +1,39 @@
 package entities;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Objects;
 
-import lombok.Getter;
-import lombok.Setter;
-
-// Ši anotacija reiškia, kad klasė turi būti primappinta prie DB
 @Entity
-// Pridedam query užklausą, kad galima būtų perpanaudoti ir nekopijuoti.
 @NamedQueries({
         @NamedQuery(name = "Player.findAll", query = "select a from Player as a")
 })
-
 @Table(name = "PLAYER")
 @Getter @Setter
 public class Player implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID", nullable = false)
     private Integer id;
 
     @Size(max = 50)
     @Column(name = "NAME")
     private String name;
 
-    //Sujungiam su Team
+//    @Column(name = "JERSEY_NUMBER")
+//    private Integer jerseyNumber;
+
     @ManyToOne
     @JoinColumn(name="TEAM_ID")
-    private TeamEntity team;
+    private Team team;
+
+//    @Version
+//    @Column(name = "OPT_LOCK_VERSION")
+//    private Integer version;
 
     public Player() {
     }
@@ -49,5 +51,4 @@ public class Player implements Serializable {
     public int hashCode() {
         return Objects.hash(id, name);
     }
-
 }

@@ -5,20 +5,20 @@
 <!--                <class>entities.Team</class>-->
 <!--                <class>entities.Player</class>-->
                 <jta-data-source>ESportsDataSource</jta-data-source>
-                <class>entities.TeamEntity</class>
+                <class>entities.Team</class>
                 <class>entities.Player</class>
                 <properties>
                     <!--<property name="hibernate.hbm2ddl.auto" value="create"/>-->
                     <property name="hibernate.show_sql" value="true"/>
-                    <property name="hibernate.hbm2ddl.auto" value="update"/>
-                    <property name="toplink.jdbc.url" value="jdbc:h2:~/h2database/PlayersDB;AUTO_SERVER=TRUE"/>
-                    <property name="toplink.jdbc.driver" value="org.h2.Driver"/>
-                    <property name="hibernate.connection.url" value="jdbc:h2:~/h2database/PlayersDB;AUTO_SERVER=TRUE"/>
-                    <property name="hibernate.connection.driver_class" value="org.h2.Driver"/>
-                    <property name="openjpa.ConnectionURL" value="jdbc:h2:~/h2database/PlayersDB;AUTO_SERVER=TRUE"/>
-                    <property name="openjpa.ConnectionDriverName" value="org.h2.Driver"/>
-                    <property name="eclipselink.jdbc.url" value="jdbc:h2:~/h2database/PlayersDB;AUTO_SERVER=TRUE"/>
-                    <property name="eclipselink.jdbc.driver" value="org.h2.Driver"/>
+                    <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+<!--                    <property name="toplink.jdbc.url" value="jdbc:h2:~/h2database/PlayersDB;AUTO_SERVER=TRUE"/>-->
+<!--                    <property name="toplink.jdbc.driver" value="org.h2.Driver"/>-->
+<!--                    <property name="hibernate.connection.url" value="jdbc:h2:~/h2database/PlayersDB;AUTO_SERVER=TRUE"/>-->
+<!--                    <property name="hibernate.connection.driver_class" value="org.h2.Driver"/>-->
+<!--                    <property name="openjpa.ConnectionURL" value="jdbc:h2:~/h2database/PlayersDB;AUTO_SERVER=TRUE"/>-->
+<!--                    <property name="openjpa.ConnectionDriverName" value="org.h2.Driver"/>-->
+<!--                    <property name="eclipselink.jdbc.url" value="jdbc:h2:~/h2database/PlayersDB;AUTO_SERVER=TRUE"/>-->
+<!--                    <property name="eclipselink.jdbc.driver" value="org.h2.Driver"/>-->
                 </properties>
             </persistence-unit>
         </persistence>

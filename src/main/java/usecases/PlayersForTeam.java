@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.Map;
 
 import entities.Player;
-import entities.TeamEntity;
+import entities.Team;
 import lombok.Getter;
 import lombok.Setter;
 import persistence.PlayersDAO;
@@ -26,7 +26,7 @@ public class PlayersForTeam implements Serializable {
     private PlayersDAO playersDAO;
 
     @Getter @Setter
-    private TeamEntity team;
+    private Team team;
 
     @Getter @Setter
     private Player playerToCreate = new Player();
@@ -43,6 +43,7 @@ public class PlayersForTeam implements Serializable {
     public String createPlayer() {
         playerToCreate.setTeam(this.team);
         playersDAO.persist(playerToCreate);
+        System.out.println("Player created: \"playersPage?faces-redirect=true&teamId=\"" + this.team.getId());
         return "playersPage?faces-redirect=true&teamId=" + this.team.getId();
     }
 }

@@ -1,6 +1,6 @@
 package persistence;
 
-import entities.TeamEntity;
+import entities.Team;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -15,24 +15,23 @@ public class TeamsDAO {
     private EntityManager em;
 
     //Vat čia panaudojam query parašyta prie teamEntity
-    public List<TeamEntity> loadAll() {
-        System.out.println("HELP ME " + em.createNamedQuery("TeamEntity.findAll", TeamEntity.class).getResultList());
-        return em.createNamedQuery("TeamEntity.findAll", TeamEntity.class).getResultList();
+    public List<Team> loadAll() {
+        return em.createNamedQuery("Team.findAll", Team.class).getResultList();
     }
 
     public void setEm(EntityManager em) {
         this.em = em;
     }
 
-    public void persist(TeamEntity team){
+    public void persist(Team team){
         this.em.persist(team);
     }
 
-    public TeamEntity findOne(Integer id) {
+    public Team findOne(Integer id) {
         // Select from Team where id = id
-        return em.find(TeamEntity.class, id);
+        return em.find(Team.class, id);
     }
-    public TeamEntity update(TeamEntity team){
+    public Team update(Team team){
         return em.merge(team);
     }
 }
